@@ -6,8 +6,7 @@ on:
       - opened
   push:
     branches:
-      - "main"
-      - "!**"
+      - "Test-1"
 
 jobs:
   job1:
