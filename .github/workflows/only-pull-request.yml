@@ -1,0 +1,11 @@
+name: Testing repo which will trigger only on pull request
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  job1:
+    runs-on: shell-runner
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "only runs on pull request" 
