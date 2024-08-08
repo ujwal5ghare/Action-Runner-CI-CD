@@ -3,10 +3,9 @@ name: Testing repo which will trigger only on pull request
 on:
   pull_request:
     types:
-      - closed
+      - opened
   push:
     branches:
-      - "**"
       - "!main"
 
 jobs:
