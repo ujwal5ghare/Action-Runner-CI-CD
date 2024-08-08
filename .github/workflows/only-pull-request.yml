@@ -20,4 +20,3 @@ jobs:
     runs-on: shell-runner
     steps:
       - run: echo "The PR was merged"
-      
