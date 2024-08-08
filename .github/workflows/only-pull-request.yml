@@ -1,10 +1,9 @@
 name: Testing repo which will trigger only on pull request
+
 on:
   pull_request:
-    branches: ['Testing']
-      # types: [opened, synchronize, closed]
-      types:
-        - opened
+    types:
+      - closed
   push:
     branches:
       - "**"
