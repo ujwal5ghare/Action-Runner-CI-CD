@@ -1,13 +1,12 @@
 name: Testing repo which will trigger only on pull request
 on:
+  pull_request:
+    branches: ['Testing']
+      types: [opened, synchronize, closed]
   push:
     branches:
       - "**"
       - "!main"
-  pull_request:
-    branches: [main]
-      types: [opened, synchronize, closed]
-
 
 jobs:
   job1:
