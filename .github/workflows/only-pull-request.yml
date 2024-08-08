@@ -6,13 +6,14 @@ on:
       - opened
   push:
     branches:
-      - "!main"
+      - "main"
+      - "!**"
 
 jobs:
   job1:
     runs-on: shell-runner
     steps:
-      - run: echo "only runs on pull request" 
+      - run: echo "The PR is raised" 
 
   if_merged:
     if: github.event.pull_request.merged == true
