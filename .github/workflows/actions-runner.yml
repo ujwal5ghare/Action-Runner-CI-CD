@@ -8,4 +8,4 @@ jobs:
     runs-on: shell-runner
     steps:
       - uses: actions/checkout@v4
-      - run: echo "job1 is succeeded with shell-runner"
+      - run: ls /root
