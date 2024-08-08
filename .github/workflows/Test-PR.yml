@@ -1,0 +1,32 @@
+name: Testing repo which will trigger only on pull request
+
+on:
+  pull_request: # [main]
+    types:
+      - opened
+#   types: [opened, synchronize, closed]
+  push:
+    branches:
+      - "Test-1"
+# pull_request_review:
+#   types: [submitted]
+#   types: [edited, dismissed]
+
+
+jobs:
+  pr-test:
+    runs-on: shell-runner
+    steps:
+      - run: echo "The PR is raised" 
+
+  # if_merged:
+  #   if: github.event.pull_request.merged == true
+  #   runs-on: shell-runner
+  #   steps:
+  #     - run: echo "The PR was merged"
+
+  # approved:
+  #   if: github.event.review.state == 'approved'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo "This PR was approved"
