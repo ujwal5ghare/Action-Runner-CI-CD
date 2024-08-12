@@ -21,7 +21,46 @@
 #       shell: bash 
 
 
+name: 'Testing vegaops-config'
+inputs:
+  branch:
+    description: 'A branch input'
+    default: 'Test-1'
+    required: true
+  dir:
+    description: 'A dir input'
+    default: '/home/ubuntu'
+    required: true
 
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Prod Deploy Job
+      if: github.ref == 'refs/heads/${{ inputs.branch }}'
+      # working-directory: ${{ inputs.dir }}
+      run: | 
+        sudo chmod -R 775 ./*
+        git add . && git commit --allow-empty -m "updated permissions"
+        echo "prod path and project name"
+        echo ${{ inputs.dir }}
+        echo $GITHUB_REPOSITORY
+        cd ${{ inputs.dir }}/vegaops-clients-codewave
+        git config --global --add safe.directory ${{ inputs.dir }}/$vegaops-clients-codewave
+        pwd
+        git fetch $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
+        git checkout -B ${{ inputs.branch }} origin/${{ inputs.branch }} 
+        git pull $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git ${{ inputs.branch }}
+        sudo chmod -R 775 ./*
+        git add . && git commit --allow-empty -m "updated permissions"
+      shell: bash
+      # env:
+      #   name: vegaops-config
+      #   url: https://config.vegaops.com/
+
+    - name: Run Clone To Prod Job
+      run: |
+        cd ${{ inputs.dir }}
+        git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
 
 # # if: github.ref == 'refs/heads/action-ci-cd-test'
 # # runs-on: vegaops-config
