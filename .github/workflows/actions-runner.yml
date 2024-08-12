@@ -17,7 +17,6 @@ jobs:
   action-job:
     runs-on: ubuntu-latest
     steps:
-      - id: ujwal5ghare
-        uses: ujwal5ghare/Spot-Runner-Testing@Private-Actions
+      - uses: vs-ops-bot/Spot-Runner-Testing@Private-Actions
         with:
            who-to-greet: 'Octacat'
