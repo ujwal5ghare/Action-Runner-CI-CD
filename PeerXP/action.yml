@@ -21,18 +21,6 @@
 #       shell: bash 
 
 
-name: Testing PeerXP Action
-on: [push]
-
-jobs:
-  PROD_DEPLOY:
-    runs-on: vegaops-config
-    steps:
-      - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
-        with:
-          branch: $GITHUB_REF_NAME
-          dir: '/var/vegaops/config'
-
 
 
 # # if: github.ref == 'refs/heads/action-ci-cd-test'

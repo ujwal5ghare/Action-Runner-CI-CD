@@ -10,13 +10,14 @@
 #       - uses: actions/checkout@v4
 #       - run: ls /root
 
-name: Testing custom github actions
+name: Testing PeerXP Action
 on: [push]
 
 jobs:
-  action-job:
-    runs-on: ubuntu-latest
+  PROD_DEPLOY:
+    runs-on: vegaops-config
     steps:
-      - uses: vs-ops-bot/Action-Runner-CI-CD@Test-1
+      - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
         with:
-           who-to-greet: 'Octacat'
+          branch: $GITHUB_REF_NAME
+          dir: '/var/vegaops/config'
