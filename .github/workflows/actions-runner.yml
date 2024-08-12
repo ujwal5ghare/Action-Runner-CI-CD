@@ -1,11 +1,23 @@
-name: Action Runner Testing
-on: 
-  push:
-    branches: [main]
+# name: Action Runner Testing
+# on: 
+#   push:
+#     branches: [main]
+
+# jobs:
+#   job1:
+#     runs-on: shell-runner
+#     steps:
+#       - uses: actions/checkout@v4
+#       - run: ls /root
+
+name: Testing custom github actions
+on: [push]
 
 jobs:
-  job1:
-    runs-on: shell-runner
+  action-job:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: ls /root
+      - id: ujwal5ghare
+        uses: ujwal5ghare/Spot-Runner-Testing@Private-Actions
+        with:
+           who-to-greet: 'Octacat'
