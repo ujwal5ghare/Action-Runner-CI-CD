@@ -17,7 +17,7 @@ jobs:
   PROD_DEPLOY:
     runs-on: shell-runner
     steps:
-      - uses: VegaStack/vegaops-clients-codewave/PeerXP@action-ci-cd-test
+      - uses: VegaStack/vegaops-clients-codewave/PeerXP@v1.0.0
         with:
           branch: $GITHUB_REF_NAME
           dir: '/var/vegaops/config'
