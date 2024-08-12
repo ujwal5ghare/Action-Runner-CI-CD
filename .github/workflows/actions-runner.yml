@@ -15,7 +15,7 @@ on: [push]
 
 jobs:
   PROD_DEPLOY:
-    runs-on: ubuntu-latest
+    runs-on: shell-runner
     steps:
       - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
         with:
