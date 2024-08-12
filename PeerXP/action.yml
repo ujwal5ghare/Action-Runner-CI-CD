@@ -37,7 +37,7 @@ runs:
   steps:
     - name: Run Prod Deploy Job
       if: github.ref == 'refs/heads/${{ inputs.branch }}'
-      # working-directory: ${{ inputs.dir }}
+      working-directory: ${{ inputs.dir }}
       run: | 
         sudo chmod -R 775 ./*
         git add . && git commit --allow-empty -m "updated permissions"
@@ -57,10 +57,10 @@ runs:
       #   name: vegaops-config
       #   url: https://config.vegaops.com/
 
-    - name: Run Clone To Prod Job
-      run: |
-        cd ${{ inputs.dir }}
-        git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
+    # - name: Run Clone To Prod Job
+    #   run: |
+    #     cd ${{ inputs.dir }}
+    #     git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
 
 # # if: github.ref == 'refs/heads/action-ci-cd-test'
 # # runs-on: vegaops-config
