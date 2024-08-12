@@ -17,7 +17,7 @@ jobs:
   PROD_DEPLOY:
     runs-on: vegaops-config
     steps:
-      - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
+      - uses: VegaStack/vegaops-clients-codewave/PeerXP@action-ci-cd-test
         with:
           branch: $GITHUB_REF_NAME
           dir: '/var/vegaops/config'
