@@ -1,8 +1,7 @@
 name: 'My Action'
 description: 'An example action'
 inputs:
-  work-dir: '/tmp'
-  run: npm 
+  work-dir:
 runs:
   using: 'composite'
   steps:
