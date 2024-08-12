@@ -17,10 +17,10 @@ jobs:
   PROD_DEPLOY:
     runs-on: ubuntu-latest
     steps:
-      - uses: VegaStack/vegaops-clients-codewave/PeerXP@v1.0.0
+      - uses: ./PeerXP@Test-1
         with:
           branch: $GITHUB_REF_NAME
-          dir: '/var/vegaops/config'
-        env:
-          GITHUB_TOKEN: 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
+          dir: '/home/ubuntu/'
+        # env:
+        #   GITHUB_TOKEN: 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
           
