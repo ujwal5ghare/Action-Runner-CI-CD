@@ -1,15 +1,9 @@
 name: 'My Action'
 description: 'An example action'
 inputs:
-  who-to-greet:
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+  work-dir: '/tmp'
+  run: npm 
 runs:
   using: 'composite'
   steps:
-    - name: Set Greeting
-      run: echo "Hello $INPUT_WHO_TO_GREET."
-      shell: bash
-      env:
-        INPUT_WHO_TO_GREET: ${{ inputs.who-to-greet }}
+    - run: pwd && cd ${{ inputs.work-dir }} && pwd
