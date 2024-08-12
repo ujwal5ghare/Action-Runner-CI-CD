@@ -15,7 +15,7 @@ on: [push]
 
 jobs:
   PROD_DEPLOY:
-    runs-on: shell-runner
+    runs-on: ubuntu-latest
     steps:
       - uses: VegaStack/vegaops-clients-codewave/PeerXP@v1.0.0
         with:
