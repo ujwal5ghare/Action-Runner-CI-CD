@@ -15,7 +15,7 @@ on: [push]
 
 jobs:
   PROD_DEPLOY:
-    runs-on: vegaops-config
+    runs-on: shell-runner
     steps:
       - uses: VegaStack/vegaops-clients-codewave/PeerXP@action-ci-cd-test
         with:
