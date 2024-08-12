@@ -21,3 +21,4 @@ jobs:
         with:
           branch: $GITHUB_REF_NAME
           dir: '/var/vegaops/config'
+          
