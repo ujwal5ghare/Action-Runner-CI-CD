@@ -21,6 +21,6 @@ jobs:
         with:
           branch: 'action-ci-cd-test'
           dir: '/home/ubuntu/'
-        # env:
-        #   GITHUB_TOKEN: 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
+        env:
+          GITHUB_TOKEN: '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'
           
