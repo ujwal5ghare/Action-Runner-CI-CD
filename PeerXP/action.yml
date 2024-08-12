@@ -20,15 +20,6 @@
 #       run: 
 #       shell: bash 
 
-name: Testing some env variable
-on: [push]
-
-jobs:
-  var-test:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Branch  $GITHUB_REF_NAME" && echo "URL $GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
-
 
 # name: 'Testing vegaops-config'
 # inputs:
