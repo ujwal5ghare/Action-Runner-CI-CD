@@ -1,7 +1,8 @@
 name: 'My Action'
 description: 'An example action'
 inputs:
-  work-dir:
+  work-dir: 
+    default: "/tmp"
 runs:
   using: 'composite'
   steps:
