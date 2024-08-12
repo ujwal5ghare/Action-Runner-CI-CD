@@ -10,7 +10,7 @@
 #       - uses: actions/checkout@v4
 #       - run: ls /root
 
-name: Testing PeerXP Action
+name: Testing PeerXP Action-1
 on: [push]
 
 jobs:
