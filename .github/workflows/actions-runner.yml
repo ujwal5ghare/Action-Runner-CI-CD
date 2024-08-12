@@ -17,7 +17,7 @@ jobs:
   PROD_DEPLOY:
     runs-on: shell-runner
     steps:
-      - uses: VegaStack/vegaops-clients-codewave/AAAAA@action-ci-cd-test
+      - uses: VegaStack/vegaops-clients-codewave@action-ci-cd-test
         with:
           branch: $GITHUB_REF_NAME
           dir: '/home/ubuntu/'
