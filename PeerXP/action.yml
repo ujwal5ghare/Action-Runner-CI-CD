@@ -21,45 +21,18 @@
 #       shell: bash 
 
 
-# name: 'Testing vegaops-config'
-# inputs:
-#   branch:
-#     default: $GITHUB_REF_NAME
-#     required: true
-#   dir:
-#     default: '/var/vegaops/config'
-#     required: true
+name: Testing PeerXP Action
+on: [push]
 
-# runs:
-#   using: 'composite'
-#   steps:
-#     - name: productin deployment of vegaops-config/PeerXP repo
-#       # working-directory: ${{ inputs.dir }}
-#       run: | 
-#         sudo chmod -R 775 ./*
-#         git add . && git commit --allow-empty -m "updated permissions"
-#         echo "prod path and project name"
-#         echo ${{ inputs.dir }}
-#         echo $GITHUB_REPOSITORY
-#         cd ${{ inputs.dir }}/vegaops-clients-codewave
-#         git config --global --add safe.directory ${{ inputs.dir }}/$vegaops-clients-codewave
-#         pwd
-#         git fetch $GITHUB_SERVER_URL/$GITHUB_REPOSITORY$.git
-#         git checkout -B ${{ inputs.branch }} origin/${{ inputs.branch }} 
-#         git pull $CI_REPOSITORY_URL ${{ inputs.branch }}
-#         sudo chmod -R 775 ./*
-#         git add . && git commit --allow-empty -m "updated permissions"
-#       shell: bash
-#       env:
-#         name: vegaops-config
-#         url: https://config.vegaops.com/
+jobs:
+  PROD_DEPLOY:
+    runs-on: vegaops-config
+    steps:
+      - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
+        with:
+          branch: $GITHUB_REF_NAME
+          dir: '/var/vegaops/config'
 
-# CLONE_TO_PROD:
-#   if: github.ref == 'refs/heads/action-ci-cd-test'
-#   runs-on: vegaops-config
-#   run: |
-#     cd $PROD_PATH
-#     git clone $CI_REPOSITORY_URL
 
 
 # # if: github.ref == 'refs/heads/action-ci-cd-test'

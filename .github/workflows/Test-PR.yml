@@ -5,9 +5,9 @@ on:
     types:
       - opened
 #   types: [opened, synchronize, closed]
-  push:
-    branches:
-      - "Test-1"
+  # push:
+  #   branches:
+  #     - "Test-1"
 # pull_request_review:
 #   types: [submitted]
 #   types: [edited, dismissed]
