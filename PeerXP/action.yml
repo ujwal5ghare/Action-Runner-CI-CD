@@ -1,58 +1,59 @@
-# name: 'My Action'
-# description: 'An example action'
-# inputs:
-#   work-dir:
-#     description: 'Working directory'
-#     required: true
-#     default: '/tmp'
-#   branch:
-#     default: $GITHUB_REF_NAME
-#   url:
-#     default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
-# runs:
-#   using: 'composite'
-#   steps:
-#     - name: testing work-dir
-#       run: pwd && cd ${{ inputs.work-dir }} && pwd
-#       shell: bash
-     
-#     - name: testing branch and url
-#       run: 
-#       shell: bash 
-
-
-name: 'Testing vegaops-config'
+name: 'My Action'
+description: 'An example action'
 inputs:
+  work-dir:
+    description: 'Working directory'
+    required: false
+    default: '/tmp'
   branch:
-    description: 'A branch input'
-    default: 'Test-1'
-    required: true
-  dir:
-    description: 'A dir input'
-    default: '/home/ubuntu'
-    required: true
-
+    default: $GITHUB_REF_NAME
+  url:
+    default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
 runs:
   using: 'composite'
   steps:
-    - name: Run Prod Deploy Job
-      if: github.ref == 'refs/heads/${{ inputs.branch }}'
-      working-directory: ${{ inputs.dir }}
-      run: | 
-        sudo chmod -R 775 ./*
-        git add . && git commit --allow-empty -m "updated permissions"
-        echo "prod path and project name"
-        echo ${{ inputs.dir }}
-        echo $GITHUB_REPOSITORY
-        cd ${{ inputs.dir }}/vegaops-clients-codewave
-        git config --global --add safe.directory ${{ inputs.dir }}/$vegaops-clients-codewave
-        pwd
-        git fetch $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
-        git checkout -B ${{ inputs.branch }} origin/${{ inputs.branch }} 
-        git pull $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git ${{ inputs.branch }}
-        sudo chmod -R 775 ./*
-        git add . && git commit --allow-empty -m "updated permissions"
+    - name: testing work-dir
+      run: pwd && cd ${{ inputs.work-dir }} && pwd
       shell: bash
+     
+    - name: testing branch and url
+      run: echo ${{ inputs.branch}} && echo ${{ inputs.url }}
+      shell: bash 
+
+
+# name: 'Testing vegaops-config'
+# inputs:
+#   branch:
+#     description: 'A branch input'
+#     default: 'Test-1'
+#     required: true
+#   dir:
+#     description: 'A dir input'
+#     default: '/home/ubuntu'
+#     required: true
+
+# runs:
+#   using: 'composite'
+#   steps:
+#     - name: Run Prod Deploy Job
+#       if: github.ref == 'refs/heads/${{ inputs.branch }}'
+#       working-directory: ${{ inputs.dir }}
+#       run: | 
+#         sudo chmod -R 775 ./*
+#         git add . && git commit --allow-empty -m "updated permissions"
+#         echo "prod path and project name"
+#         echo ${{ inputs.dir }}
+#         echo $GITHUB_REPOSITORY
+#         cd ${{ inputs.dir }}/vegaops-clients-codewave
+#         git config --global --add safe.directory ${{ inputs.dir }}/$vegaops-clients-codewave
+#         pwd
+#         git fetch $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git
+#         git checkout -B ${{ inputs.branch }} origin/${{ inputs.branch }} 
+#         git pull $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git ${{ inputs.branch }}
+#         sudo chmod -R 775 ./*
+#         git add . && git commit --allow-empty -m "updated permissions"
+#       shell: bash
+      
       # env:
       #   name: vegaops-config
       #   url: https://config.vegaops.com/
