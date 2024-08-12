@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: VegaStack/vegaops-clients-codewave@action-ci-cd-test
         with:
-          branch: $GITHUB_REF_NAME
+          branch: 'action-ci-cd-test'
           dir: '/home/ubuntu/'
         # env:
         #   GITHUB_TOKEN: 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
