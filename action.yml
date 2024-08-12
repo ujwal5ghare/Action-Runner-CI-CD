@@ -10,3 +10,4 @@ runs:
   steps:
     - name: testing
       run: pwd && cd ${{ inputs.work-dir }} && pwd
+      shell: bash
