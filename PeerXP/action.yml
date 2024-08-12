@@ -1,0 +1,76 @@
+# name: 'My Action'
+# description: 'An example action'
+# inputs:
+#   work-dir:
+#     description: 'Working directory'
+#     required: true
+#     default: '/tmp'
+#   branch:
+#     default: $GITHUB_REF_NAME
+#   url:
+#     default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
+# runs:
+#   using: 'composite'
+#   steps:
+#     - name: testing work-dir
+#       run: pwd && cd ${{ inputs.work-dir }} && pwd
+#       shell: bash
+     
+#     - name: testing branch and url
+#       run: 
+#       shell: bash 
+
+name: Testing some env variable
+on: [push]
+
+jobs:
+  var-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Branch  $GITHUB_REF_NAME" && echo "URL $GITHUB_SERVER_URL/$GITHUB_REPOSITORY"
+
+
+# name: 'Testing vegaops-config'
+# inputs:
+#   branch:
+#     default: $GITHUB_REF_NAME
+#     required: true
+#   dir:
+#     default: '/var/vegaops/config'
+#     required: true
+
+# runs:
+#   using: 'composite'
+#   steps:
+#     - name: productin deployment of vegaops-config/PeerXP repo
+#       # working-directory: ${{ inputs.dir }}
+#       run: | 
+#         sudo chmod -R 775 ./*
+#         git add . && git commit --allow-empty -m "updated permissions"
+#         echo "prod path and project name"
+#         echo ${{ inputs.dir }}
+#         echo $GITHUB_REPOSITORY
+#         cd ${{ inputs.dir }}/vegaops-clients-codewave
+#         git config --global --add safe.directory ${{ inputs.dir }}/$vegaops-clients-codewave
+#         pwd
+#         git fetch $GITHUB_SERVER_URL/$GITHUB_REPOSITORY$.git
+#         git checkout -B ${{ inputs.branch }} origin/${{ inputs.branch }} 
+#         git pull $CI_REPOSITORY_URL ${{ inputs.branch }}
+#         sudo chmod -R 775 ./*
+#         git add . && git commit --allow-empty -m "updated permissions"
+#       shell: bash
+#       env:
+#         name: vegaops-config
+#         url: https://config.vegaops.com/
+
+# CLONE_TO_PROD:
+#   if: github.ref == 'refs/heads/action-ci-cd-test'
+#   runs-on: vegaops-config
+#   run: |
+#     cd $PROD_PATH
+#     git clone $CI_REPOSITORY_URL
+
+
+# # if: github.ref == 'refs/heads/action-ci-cd-test'
+# # runs-on: vegaops-config
+
