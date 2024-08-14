@@ -16,8 +16,8 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: testing work-dir
       if: ${{ inputs.start }} == 'true'
+    - name: testing work-dir
       run: echo ${{ inputs.start }} && pwd && cd ${{ inputs.work-dir }} && pwd
       shell: bash
      

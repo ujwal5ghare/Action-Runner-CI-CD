@@ -10,7 +10,7 @@ jobs:
           branch: $GITHUB_REF_NAME
           dir: '/var/vegaops/config/'
           # url: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
-          start: false
+          start: 'false'
 
 
 # name: manual approval demo
