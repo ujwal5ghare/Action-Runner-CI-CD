@@ -4,7 +4,7 @@ on:
   branches: Test-1
 
 env:
-  var: True
+  var: 'True'
 
 jobs:
  plan:
@@ -13,7 +13,7 @@ jobs:
    steps:
      - run: echo "plan job"
  apply:
-    if: {{ github.env == True }}
+    if: {{ github.env == 'True' }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "apply job"
