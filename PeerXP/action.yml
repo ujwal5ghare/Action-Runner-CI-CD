@@ -11,6 +11,7 @@ inputs:
     default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
   start: 
     default: 'false'
+    type: boolean
 
 runs:
   using: 'composite'
