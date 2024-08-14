@@ -16,14 +16,14 @@ inputs:
 runs:
   using: 'composite'
   steps:
-      if: ${{ inputs.start }} == 'true'
     - name: testing work-dir
+      if: ${{ inputs.start }}==true
       run: echo ${{ inputs.start }} && pwd && cd ${{ inputs.work-dir }} && pwd
       shell: bash
      
     - name: testing branch and url
       run: echo ${{ inputs.branch}} && echo ${{ inputs.url }}
-      shell: bash 
+      shell: bash
 
 
 # name: 'Testing vegaops-config'
