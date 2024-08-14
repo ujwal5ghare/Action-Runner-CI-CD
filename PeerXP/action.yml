@@ -11,14 +11,14 @@ inputs:
     default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
   start: 
     required: false
-    type: boolean
+    default: 'false'
 
 runs:
   using: 'composite'
   steps:
     - name: testing work-dir
-      if: ${{ inputs.start }}
-      run: pwd && cd ${{ inputs.work-dir }} && pwd
+      if: ${{ inputs.start }} == 'true'
+      run: echo ${{ inputs.start }} && pwd && cd ${{ inputs.work-dir }} && pwd
       shell: bash
      
     - name: testing branch and url
