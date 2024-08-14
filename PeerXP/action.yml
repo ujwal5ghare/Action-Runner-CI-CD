@@ -10,9 +10,7 @@ inputs:
   url:
     default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
   start: 
-    required: false
     default: 'false'
-    type: boolean
 
 runs:
   using: 'composite'
