@@ -14,8 +14,7 @@ jobs:
      - run: echo "plan job"
  apply:
     if: {{ github.env == True }}
-    name: Testing apply
-    runs-on:ubunntu-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "apply job"
 
