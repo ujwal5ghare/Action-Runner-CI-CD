@@ -1,22 +1,42 @@
-name: Testing repo which will trigger only on pull request
-
+name: manual approval demo
 on:
-  pull_request:
-    types:
-      - opened
-  # push:
-  #   branches:
-  #     - "Test-1"
-  #     - "!main"
+ push: 
+  branches: Test-1
 
 jobs:
-  job1:
-    runs-on: shell-runner
-    steps:
-      - run: echo "only runs on pull request" 
+ tf_plan:
+   name: Terraform Plan
+   runs-on: ubuntu-latest
+   environment: Prod
+   steps:
+     - run: echo "tf_plan job"
 
-  if_merged:
-    if: github.event.pull_request.merged == true
-    runs-on: shell-runner
-    steps:
-      - run: echo "The PR was merged"
+ tf_apply:
+   name: Terraform Apply
+   runs-on: ubuntu-latest
+   environment: Prod-manual
+   steps:  
+     - run: echo " tf apply"
+
+# name: Testing repo which will trigger only on pull request
+
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#   # push:
+#   #   branches:
+#   #     - "Test-1"
+#   #     - "!main"
+
+# jobs:
+#   job1:
+#     runs-on: shell-runner
+#     steps:
+#       - run: echo "only runs on pull request" 
+
+#   if_merged:
+#     if: github.event.pull_request.merged == true
+#     runs-on: shell-runner
+#     steps:
+#       - run: echo "The PR was merged"
