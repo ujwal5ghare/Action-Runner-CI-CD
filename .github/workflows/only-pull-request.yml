@@ -8,7 +8,7 @@ jobs:
       - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
         with:
           branch: $GITHUB_REF_NAME
-          dir: '/var/vegaops/config/'
+          work-dir: '/var/vegaops/config/'
           # url: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
           start: 'false'
 

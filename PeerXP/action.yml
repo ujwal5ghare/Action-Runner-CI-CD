@@ -12,6 +12,7 @@ inputs:
   start: 
     required: false
     default: 'false'
+    type: boolean
 
 runs:
   using: 'composite'
