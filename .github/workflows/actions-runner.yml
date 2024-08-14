@@ -12,6 +12,9 @@
 
 name: Testing workflow_dispatch
 on:
+  push:
+    branches: Test-1
+    
   workflow_dispatch:
     inputs:
       logLevel:

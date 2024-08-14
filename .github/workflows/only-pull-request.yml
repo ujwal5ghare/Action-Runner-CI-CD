@@ -1,32 +1,32 @@
-name: manual approval demo
-on:
- push: 
-  branches: Test-1
+# name: manual approval demo
+# on:
+#  push: 
+#   branches: Test-1
 
-jobs:
- tf_plan:
-   name: Terraform Plan
-   runs-on: ubuntu-latest
-   environment: Prod
-   steps:
-     - run: echo "tf_plan job"
+# jobs:
+#  tf_plan:
+#    name: Terraform Plan
+#    runs-on: ubuntu-latest
+#    environment: Prod
+#    steps:
+#      - run: echo "tf_plan job"
 
- tf_apply:
-   name: Terraform Apply
-   runs-on: ubuntu-latest
-   environment: Prod-manual
-   steps:  
-     - run: echo " tf apply"
+#  tf_apply:
+#    name: Terraform Apply
+#    runs-on: ubuntu-latest
+#    environment: Prod-manual
+#    steps:  
+#      - run: echo " tf apply"
 
- ManualApprove:
-   needs: tf_apply
-   environment:
-     name: approvers
-   runs-on: ubuntu-latest
-   steps:
-   - name: manual approve
-     run: |
-         echo "Manually approved"
+#  ManualApprove:
+#    needs: tf_apply
+#    environment:
+#      name: approvers
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: manual approve
+#      run: |
+#          echo "Manually approved"
 
 # name: Testing repo which will trigger only on pull request
 
