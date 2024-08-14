@@ -11,9 +11,9 @@
 #       - run: ls /root
 
 name: Testing workflow_dispatch
-on:
-  push:
-    branches: Test-1
+# on:
+#   push:
+#     branches: Test-1
 
   workflow_dispatch:
     # inputs:

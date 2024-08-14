@@ -9,11 +9,15 @@ inputs:
     default: $GITHUB_REF_NAME
   url:
     default: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
+  start: 
+    required: false
+    type: boolean
+
 runs:
   using: 'composite'
   steps:
     - name: testing work-dir
-      run: pwd && cd ${{ inputs.work-dir }} && pwd
+      run: echo ${{ inputs.start }} && pwd && cd ${{ inputs.work-dir }} && pwd
       shell: bash
      
     - name: testing branch and url

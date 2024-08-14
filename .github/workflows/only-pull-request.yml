@@ -1,22 +1,16 @@
-name: manual approval demo
-on:
- push: 
-  branches: Test-1
-
-env:
-  var: 'True'
+name: Testing PeerXP Action
+on: [push]
 
 jobs:
- plan:
-   name: Testing plan
-   runs-on: ubuntu-latest
-   steps:
-     - run: echo "plan job"
- apply:
-    if: {{ github.env == 'True' }}
-    runs-on: ubuntu-latest
+  Testing-1:
+    runs-on: vegaops-config
     steps:
-      - run: echo "apply job"
+      - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
+        with:
+          branch: $GITHUB_REF_NAME
+          dir: '/var/vegaops/config/'
+          # url: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY
+          start: false
 
 
 # name: manual approval demo
