@@ -12,13 +12,13 @@ inputs:
   start: 
     required: false
     type: boolean
-    default: 'false'
 
 runs:
   using: 'composite'
   steps:
     - name: testing work-dir
-      run: echo ${{ inputs.start }} && pwd && cd ${{ inputs.work-dir }} && pwd
+      if: ${{ inputs.start }}
+      run: pwd && cd ${{ inputs.work-dir }} && pwd
       shell: bash
      
     - name: testing branch and url
