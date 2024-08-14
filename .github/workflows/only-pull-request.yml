@@ -3,8 +3,6 @@ on:
  push: 
   branches: Test-1
 
- workflow_dispatch:
-
 jobs:
  tf_plan:
    name: Terraform Plan
@@ -19,6 +17,16 @@ jobs:
    environment: Prod-manual
    steps:  
      - run: echo " tf apply"
+
+ ManualApprove:
+   needs: tf_apply
+   environment:
+     name: approvers
+   runs-on: ubuntu-latest
+   steps:
+   - name: manual approve
+     run: |
+         echo "Manually approved"
 
 # name: Testing repo which will trigger only on pull request
 
