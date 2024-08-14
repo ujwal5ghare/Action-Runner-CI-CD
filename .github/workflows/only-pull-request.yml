@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   Testing-1:
-    runs-on: vegaops-config
+    runs-on: ubuntu-latest
     steps:
       - uses: vs-ops-bot/Action-Runner-CI-CD/PeerXP@Test-1
         with:
