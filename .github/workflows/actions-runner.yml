@@ -14,7 +14,7 @@ name: Testing workflow_dispatch
 # on:
 #   push:
 #     branches: Test-1
-
+on:
   workflow_dispatch:
     # inputs:
     #   logLevel:
