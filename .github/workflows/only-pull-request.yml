@@ -1,6 +1,7 @@
 name: Testing PeerXP Action
 on:
-  pull_request: [Test-1]
+  pull_request:
+    branches: [Test-1]
 jobs:
   Testing-1:
     runs-on: ubuntu-latest

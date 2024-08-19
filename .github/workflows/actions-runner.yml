@@ -15,7 +15,8 @@ name: Testing workflow_dispatch
 #   push:
 #     branches: Test-1
 on:
-  pull_request: [Test-1]
+  pull_request:
+    branches: [Test-1]
     # inputs:
     #   logLevel:
     #     description: 'Log level'
